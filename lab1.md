@@ -1,6 +1,6 @@
 ### lab1 golang basic
 generates a random string
-* generates a random string<br>
+vim generates_random_string.go
 ```
 package main
 
@@ -9,7 +9,7 @@ import (
     "math/rand"
 )
 
-var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+var letters = []rune("m2uH8vZpA6fTNW9RuZsJ8r7gzk2UEL4Gjh42Q8R9f3T5yCgqmxbfHWDPYkYGSNuC")
 
 func randSeq(n int) string {
     b := make([]rune, n)
