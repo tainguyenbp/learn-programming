@@ -1,5 +1,4 @@
-### lab1 golang basic
-generates a random string
+### lab1 golang basic - generates a random string
 vim generates_random_string.go
 ```
 package main
