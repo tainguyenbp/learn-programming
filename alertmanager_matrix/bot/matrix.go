@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"git.slxh.eu/prometheus/alertmanager_matrix/alertmanager"
-	"git.slxh.eu/prometheus/alertmanager_matrix/matrix"
+	"github.com/tainguyenbp/golang-basic/alertmanager_matrix/alertmanager"
+	"github.com/tainguyenbp/golang-basic/alertmanager_matrix/matrix"
 	"github.com/prometheus/alertmanager/types"
 )
 

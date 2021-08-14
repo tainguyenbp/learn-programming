@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"git.slxh.eu/prometheus/alertmanager_matrix/alertmanager"
+	"github.com/tainguyenbp/golang-basic/alertmanager_matrix/alertmanager"
 	"github.com/prometheus/alertmanager/types"
 )
 

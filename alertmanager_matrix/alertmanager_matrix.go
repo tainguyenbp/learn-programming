@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"git.slxh.eu/prometheus/alertmanager_matrix/alertmanager"
-	"git.slxh.eu/prometheus/alertmanager_matrix/bot"
+	"github.com/tainguyenbp/golang-basic/alertmanager_matrix/alertmanager"
+	"github.com/tainguyenbp/golang-basic/alertmanager_matrix/bot"
 	"github.com/gorilla/mux"
 )
 
