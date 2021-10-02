@@ -1,6 +1,7 @@
 # alertmanager-matrix
 Service for sending alerts from the Alertmanager webhook to a Matrix room
 and managing Alertmanager.
+https://github.com/silkeh/alertmanager_matrix
 
 ## Usage
 The service is configured either through command line arguments or environment variables.
