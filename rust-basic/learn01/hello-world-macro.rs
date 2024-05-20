@@ -1,5 +1,4 @@
 fn main() {
-
     println!("{}, {}!", "Hello", "world"); // Hello, world!
     println!("{}, {}!, {}", "Hello", "world", "devops"); // Hello, world!, devops
 
@@ -7,11 +6,14 @@ fn main() {
 
     println!("{0}, {1}!, {2}", "Hello", "world", "devops"); // Hello, world!, devops
 
-
     println!("{greeting}, {name}!", greeting = "Hello", name = "world"); // Hello, world!
 
-    println!("{greeting}, {name}!, {job}",  greeting = "Hello", name = "world", job="devops"); // Hello, world!, devops
-
+    println!(
+        "{greeting}, {name}!, {job}",
+        greeting = "Hello",
+        name = "world",
+        job = "devops"
+    ); // Hello, world!, devops
 
     let (greeting, name) = ("hello", "world"); // 💡 Two Variable bindings declare & initialize in one line.
     println!("{greeting}, {name}!"); // Hello, world!
@@ -29,9 +31,8 @@ fn main() {
     let x = format!("{}, {}!", "Hello", "world");
     println!("{}", x); // Hello, world!
 
-
     let infor = format!("{} {}, {}", "tai", "nguyen", "devops");
-    println!("{}", infor); 
+    println!("{}", infor);
 
     // 💡 Rust has a print!() macro as well
     print!("Hello, world!"); // Without new line
