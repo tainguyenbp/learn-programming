@@ -4,7 +4,9 @@
 parse_dockerfile() {
     arg_names=()
     while IFS= read -r line; do
-        if [[ $line =~ ^ARG\ (.+)$ ]]; then
+        # if [[ $line =~ ^ARG\ (.+)$ ]]; then # get ARG all not exclude
+        if [[ $line =~ ^ARG\ ([^\=]+)$ ]]; then # not get ARG env have = character
+
             arg_names+=("${BASH_REMATCH[1]}")
         fi
     done < Dockerfile
