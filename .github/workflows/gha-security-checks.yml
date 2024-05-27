@@ -1,0 +1,84 @@
+name: GHA Security Checks
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - develop
+      - staging
+      - refs/tags/v**
+
+jobs:
+  security_check_development:
+    runs-on: ubuntu-latest
+    # if: startsWith(github.ref, 'refs/heads/develop')
+    if: ${{ (startsWith(github.ref, 'refs/heads/develop') && contains('["tainguyenbp"]', github.actor)) }}
+    environment: development
+    # runs-on: [self-hosted, Linux, X64] # run with runner self hosted
+    steps:
+    - name: Check Repository Name Changes
+      if: startsWith(github.ref, 'refs/heads/develop')
+      run: |
+        if [ "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})" != "" ]; then
+          echo "Repository name changed. Triggering security checks..."
+          echo "${{ github.event.before }} - ${{ github.sha }}"
+
+          # Add security checks and notifications here
+        else
+          echo "No repository name change detected."
+        fi
+  security_check_staging:
+    runs-on: ubuntu-latest
+    # if: startsWith(github.ref, 'refs/heads/staging')
+    if: ${{ (startsWith(github.ref, 'refs/heads/staging') && contains('["tainguyenbp"]', github.actor)) }}
+    environment: staging
+    # runs-on: [self-hosted, Linux, X64] # run with runner self hosted
+    steps:
+    - name: Check Repository Name Changes
+      if: startsWith(github.ref, 'refs/heads/staging')
+      run: |
+        if [ "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})" != "" ]; then
+          echo "Repository name changed. Triggering security checks..."
+          echo "${{ github.event.before }} - ${{ github.sha }}"
+
+          # Add security checks and notifications here
+          # You can send telegram notifications
+        else
+          echo "No repository name change detected."
+        fi
+  security_check_production:
+    runs-on: ubuntu-latest
+    # if: startsWith(github.ref, 'refs/heads/master')
+    if: ${{ (startsWith(github.ref, 'refs/heads/master') && contains('["tainguyenbp"]', github.actor)) }}
+    environment: production
+    # runs-on: [self-hosted, Linux, X64] # run with runner self hosted
+    steps:
+    - name: Check Repository Name Changes
+      if: startsWith(github.ref, 'refs/heads/master')
+      run: |
+        if [ "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})" != "" ]; then
+          echo "Repository name changed. Triggering security checks..."
+          echo "${{ github.event.before }} - ${{ github.sha }}"
+
+          # Add security checks and notifications here
+          # You can send telegram notifications
+        else
+          echo "No repository name change detected."
+        fi
+  security_check_production_tagging:
+    runs-on: ubuntu-latest
+    if: ${{ (startsWith(github.ref, 'refs/tags/v') && contains('["tainguyenbp"]', github.actor)) }}
+    environment: production
+    # runs-on: [self-hosted, Linux, X64] # run with runner self hosted
+    steps:
+    - name: Check Repository Name Changes
+      if: startsWith(github.ref, 'refs/tags/v') # matching with tagging
+      run: |
+        if [ "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})" != "" ]; then
+          echo "Repository name changed. Triggering security checks..."
+          # Add security checks and notifications here
+          # You can send telegram notifications
+        else
+          echo "No repository name change detected."
+        fi
