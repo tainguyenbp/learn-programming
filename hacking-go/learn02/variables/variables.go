@@ -16,6 +16,9 @@ func main() {
 	var sampleString_single = "Hello tainguyen"
 
 	fmt.Println("value variable is: ", a, b, d, f, sampleInt, sampleBoolean, sampleString)
+	fmt.Println(a, b, d, f, sampleInt, sampleBoolean, sampleString)
+
 	fmt.Println("value variable single is: ", sampleInt_single, sampleBoolean_single, sampleString_single)
+	fmt.Println(sampleInt_single, sampleBoolean_single, sampleString_single)
 
 }
