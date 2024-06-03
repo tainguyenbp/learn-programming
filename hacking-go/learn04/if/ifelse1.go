@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	if var1 := 5; var1 > 20 {
+	var1 := 3
+	if var1 > 20 {
 		fmt.Println("Value inside if:", var1)
 	} else {
 		if var1 > 5 {
