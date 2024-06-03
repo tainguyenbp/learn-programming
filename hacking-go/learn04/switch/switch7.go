@@ -10,12 +10,11 @@ func main() {
 	// Seeding rand
 	rand.Seed(time.Now().UnixNano())
 	fmt.Println("Choosing a random number:")
-	switch num := rand.Intn(3); num {
-	case 1:
-		fmt.Println("1")
-	case 2:
-		fmt.Println("2")
+	num := rand.Intn(100)
+	switch {
+	case num < 50:
+		fmt.Println("Less than 50")
 	default:
-		fmt.Println("3")
+		fmt.Println("More than 50")
 	}
 }
