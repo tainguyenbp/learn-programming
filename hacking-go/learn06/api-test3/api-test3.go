@@ -49,7 +49,8 @@ func TestHelloNotFound(t *testing.T) {
 }
 
 func main() {
-	if err := Engine().Run(); err != nil {
+
+	if err := Engine().Run("localhost:8081"); err != nil {
 		println("ERROR running server:", err.Error())
 	}
 }
