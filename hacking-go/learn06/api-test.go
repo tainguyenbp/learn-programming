@@ -18,7 +18,7 @@ func Engine() *gin.Engine {
 }
 
 func main() {
-	if err := Engine().Run(); err != nil {
+	if err := Engine().Run("0.0.0.0:8088"); err != nil {
 		println("ERROR running server:", err.Error())
 	}
 }
