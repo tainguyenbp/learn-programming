@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('transfer') }}" method="POST">
+        {{ csrf_token() }}
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required>
+        <label for="destination_account">Destination Account:</label>
+        <input type="text" id="destination_account" name="destination_account" required>
+        <button type="submit">Transfer</button>
+    </form>
+</body>
+</html>
