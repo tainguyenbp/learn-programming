@@ -1,6 +1,7 @@
 #!/bin/bash
 
-function _check_cpu() {
+function _gp
+check_cpu() {
     local threshold=80
     local count5min=0
     local countTotal=0
