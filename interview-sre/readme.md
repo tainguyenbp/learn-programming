@@ -85,7 +85,10 @@ OpenTeleMetry
 
 # SAST Tools
 ```
-Runing CI Parrarel
+Bitbucket
+Jenkins: every the repository have to Jenkinfiles template, this template will filter and define all service in one Jenkinfiles, The Jenkin Master installed in EKS and Slave use EC2.
+
+Runing CI Parrarel 
        Scan static code -> success -> done
      /                  \ 
 CI: |                     failed -> send this log or this ouput to PR - u can use hook or api.
