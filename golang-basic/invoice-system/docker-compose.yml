@@ -1,0 +1,34 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:6.0
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    volumes:
+      - mongo_data:/data/db
+  rabbitmq:
+    image: rabbitmq:3.11.0
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+  go-invoice-service:
+    build: ./go-invoice-service
+    environment:
+      - MONGODB_URI=mongodb://root:123456@mongo:27017/invoice?authSource=admin
+      - RABBITMQ_URL=amqp://user:passw0rd@rabbitmq:5672
+    depends_on:
+      - mongo
+      - rabbitmq
+  go-email-service:
+    build: ./go-email-service
+    environment:
+      - RABBITMQ_URL=amqp://user:123456@rabbitmq:5672
+      - SMTP_HOST=smtp.example.com
+      - SMTP_PORT=587
+      - SMTP_USER=tanguyenbp@gmail.com
+      - SMTP_PASS=password
+    depends_on:
+      - rabbitmq
+volumes:
+  mongo_data:
